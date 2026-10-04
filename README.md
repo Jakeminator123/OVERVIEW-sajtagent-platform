@@ -1,39 +1,43 @@
-# OVERVIEW — not the platform repo
+# Public overview of Sajtagent
 
-**This repository is documentation only.** It is not `sajtagent-platform` and contains no control-panel or decision source.
+Updated: 2026-10-04.
 
-SiteAgent is three GitHub repositories:
+**Active development uses one private repository:
+[`sajtagent-platform`](https://github.com/Jakeminator123/sajtagent-platform).**
+This public repository contains only an overview, not executable product source.
 
-| Repo | Visibility | Role |
-| --- | --- | --- |
-| [`sajtagent-site`](https://github.com/Jakeminator123/sajtagent-site) | public | Web product and Builder |
-| [`sajtagent-platform`](https://github.com/Jakeminator123/sajtagent-platform) | private | Architecture decisions and a local read-only control panel |
-| [`sajtagent-sprites`](https://github.com/Jakeminator123/sajtagent-sprites) | private | Privileged OpenClaw/Sprites runtime |
+| Repository | Current role |
+| --- | --- |
+| [`sajtagent-platform`](https://github.com/Jakeminator123/sajtagent-platform) | Active monorepo: web product, runtime, shared contracts and documentation |
+| [`sajtagent-site`](https://github.com/Jakeminator123/sajtagent-site) | Archived historical web source; development moved to `site/` |
+| [`sajtagent-sprites`](https://github.com/Jakeminator123/sajtagent-sprites) | Archived historical runtime source; development moved to `runtime/` |
+| This overview | Public documentation only |
 
-GitHub cannot hide folders inside a public repo. This page is the family map only.
-
-## Family
-
-```text
-[sajtagent-platform]   private — decisions, boundaries, local status panel
-        |
-        +-- [sajtagent-site]      public  — what users open
-        |
-        +-- [sajtagent-sprites]   private — worker runtime
-```
-
-A fresh clone of the platform repo does not download the other two. Each is its own Git repository.
-
-## First-level map of the private platform repo
+## Source layout
 
 ```text
-sajtagent-platform/     private
-|-- README.md           boundaries and start-here
-|-- docs/               accepted architecture and workflow
-|-- control-panel/      local read-only status UI
-|-- scripts/            maintenance helpers
+sajtagent-platform/
+|-- site/             web product and Builder
+|-- runtime/          OpenClaw/Sprites runtime
+|-- docs/             architecture and workflow
+|-- system-model/     shared flow model
+|-- control-panel/    local read-only status UI
+|-- scripts/          development and maintenance helpers
 ```
 
-The control panel reports repository state. It does not deploy, write production data, or run customer code.
+A clone of the active platform repository includes both `site/` and `runtime/`.
+New development agents should start in that repository and read its current
+`AGENTS.md` and `docs/workflow/HANDOFF.md`.
 
-This overview does not include platform source, runtime source, or credentials.
+## Source and hosting
+
+The Vercel web project retains the name `sajtagent-site`, but builds
+`site/` from `sajtagent-platform/main`. The public web product is
+[https://sajtagent.se](https://sajtagent.se).
+
+Runtime execution is a separate service; its source belongs to `runtime/`.
+The local control panel reports repository state and does not deploy or run
+customer code. Archiving the historical repositories preserves their source
+and does not prove a production-runtime deployment change.
+
+This overview contains no private source or credentials.
