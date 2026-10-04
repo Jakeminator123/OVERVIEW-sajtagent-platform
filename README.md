@@ -9,8 +9,8 @@ This public repository contains only an overview, not executable product source.
 | Repository | Current role |
 | --- | --- |
 | [`sajtagent-platform`](https://github.com/Jakeminator123/sajtagent-platform) | Active monorepo: web product, runtime, shared contracts and documentation |
-| [`sajtagent-site`](https://github.com/Jakeminator123/sajtagent-site) | Archived historical web source; development moved to `site/` |
-| [`sajtagent-sprites`](https://github.com/Jakeminator123/sajtagent-sprites) | Archived historical runtime source; development moved to `runtime/` |
+| Former `sajtagent-site` | Deleted on 2026-10-04; active web source is in `site/` |
+| Former `sajtagent-sprites` | Deleted on 2026-10-04; active runtime source is in `runtime/` |
 | This overview | Public documentation only |
 
 ## Source layout
@@ -37,7 +37,9 @@ The Vercel web project retains the name `sajtagent-site`, but builds
 
 Runtime execution is a separate service; its source belongs to `runtime/`.
 The local control panel reports repository state and does not deploy or run
-customer code. Archiving the historical repositories preserves their source
-and does not prove a production-runtime deployment change.
+customer code. The retired component repositories and their branches were
+deleted after the hosting cutover was verified. Their historical source is
+preserved in private backups and platform archive tags. This overview remains
+display material; it does not build or deploy either service.
 
 This overview contains no private source or credentials.
